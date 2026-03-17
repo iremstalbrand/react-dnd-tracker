@@ -9,16 +9,19 @@
 :root {
   --bg-primary: #0c0a07;
   --logo: rgba(212,168,85,0.6);
-  --text-nav: rgba(190,170,130,0.2);
+  --text-nav: rgba(190, 170, 130, 0.5);
   --border: rgba(190,170,130,0.06);
   --font-display: 'Cinzel Decorative';
   --font-heading: 'Cinzel';
-  --font-body: 'Crimson Text'
-
-}
+  --font-body: 'Crimson Text';
+  --btn-bg: rgba(110, 45, 45, 0.35);
+  --btn-border: rgba(150, 65, 65, 0.45);
+  --btn-text: rgba(220, 180, 160, 0.75);
+  --btn-border-light: rgba(190, 170, 130, 0.18);
+} 
 
 body {
-  background: #0c0a07;
+  background: var(--bg-primary);
   font-family: 'Crimson Text', serif;
   color: rgba(190, 170, 130, 0.5);
 }
