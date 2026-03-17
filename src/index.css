@@ -8,8 +8,8 @@
 
 :root {
   --bg-primary: #0c0a07;
-  --logo: rgba(212,168,85,0.6);
-  --text-nav: rgba(190, 170, 130, 0.5);
+  --logo: rgba(212,168,85,0.75);
+  --text-nav: rgba(190, 170, 130, 0.8);
   --border: rgba(190,170,130,0.06);
   --font-display: 'Cinzel Decorative';
   --font-heading: 'Cinzel';
