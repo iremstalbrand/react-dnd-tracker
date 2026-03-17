@@ -23,5 +23,5 @@
 body {
   background: var(--bg-primary);
   font-family: 'Crimson Text', serif;
-  color: rgba(190, 170, 130, 0.5);
+  color: var(--text-nav);
 }

@@ -35,4 +35,10 @@
   letter-spacing: 0.2rem;
   color: var(--text-dim);
   text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav-links li:hover {
+  color: var(--logo);
+  border-bottom: 2px solid var(--logo);
 }

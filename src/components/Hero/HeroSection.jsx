@@ -7,7 +7,7 @@ export default function HeroSection() {
         <img className="hero-image" src= {image} alt="d&d party "/>
        <div className="hero-overlay"></div>
           <div className="hero-content">
-              <p className= "hero-subtitle"> x Welcome, adventurer x</p>
+              <p className= "hero-subtitle"> ✦ Welcome, adventurer ✦ </p>
               <h2 className= "hero-title"> TEST</h2>
               <p className = "hero-description"> Create your characters, assemble your party, prepare for adventure.</p>
             <div className= "hero-buttons">
