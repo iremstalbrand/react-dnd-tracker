@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Crimson+Text&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0c0a07;
+  font-family: 'Crimson Text', serif;
+  color: rgba(190, 170, 130, 0.5);
+}
