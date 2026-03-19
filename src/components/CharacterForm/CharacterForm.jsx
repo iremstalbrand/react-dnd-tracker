@@ -1,5 +1,7 @@
 import './CharacterForm.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import { getRaces, getClasses } from '../../api/dndApi'
+
 
 export default function CharacterForm({onSubmit})  {
 
@@ -31,7 +33,35 @@ export default function CharacterForm({onSubmit})  {
     function handleSubmit(event) {
     event.preventDefault()
     onSubmit(characterForm)
-}
+  }
+
+
+  const [races, setRaces] = useState([])
+  const [classes, setClasses] = useState([])
+
+  useEffect(() => {
+    async function fetchData() 
+    {
+      const racesData = await getRaces()
+       console.log("Races:", racesData)
+      setRaces(racesData)
+
+      const classesData = await getClasses()
+       console.log("Classes:", classesData)
+      setClasses(classesData)
+    }
+    fetchData()
+  }, [])
+
+  //race
+  const raceOptions = races.map(element =>
+    <option key={element.index} value={element.index}>{element.name}</option>
+   )
+
+   //class
+   const classOptions = classes.map(element =>
+    <option key={element.index} value= {element.index}>{element.name}</option>
+   )
 
   return (    
 
@@ -47,11 +77,14 @@ export default function CharacterForm({onSubmit})  {
         <label htmlFor="race">Race</label>
         <select onChange={formUpdate} value={characterForm.characterRace} name = "characterRace" id="race">
           <option>Select race</option>
+          {raceOptions}
+        
         </select>
 
         <label htmlFor="class">Class</label>
         <select onChange={formUpdate} value={characterForm.characterClass} name = "characterClass" id="class">
           <option>Select class</option>
+           {classOptions}
         </select>
 
         <label htmlFor="status">Status</label>
