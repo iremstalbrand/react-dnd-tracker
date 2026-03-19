@@ -1,7 +1,7 @@
 import './CharacterForm.css'
 import {useState} from 'react'
 
-export default function CharacterForm()  {
+export default function CharacterForm({onSubmit})  {
 
     const [characterForm , setCharacterForm] = useState({
       characterName: '',
@@ -25,14 +25,19 @@ export default function CharacterForm()  {
         [name]: value
 
       }))
-         console.log(name,value);
+         //console.log(name,value);
     }
+
+    function handleSubmit(event) {
+    event.preventDefault()
+    onSubmit(characterForm)
+}
 
   return (    
 
     <section className="form-section">
       <h2> Create New Character</h2>
-      <form className="character-form">
+      <form onSubmit = {handleSubmit} className="character-form">
 
         <div>
           <label htmlFor="name">Character Name</label>
