@@ -3,8 +3,6 @@ import {useState,useEffect} from 'react'
 import { getRaces, getClasses, getSpells } from '../../api/dndApi'
 
 
-//useState
-
 export default function CharacterForm({onSubmit})  {
 
     const [characterForm , setCharacterForm] = useState({
@@ -23,7 +21,6 @@ export default function CharacterForm({onSubmit})  {
       backstory: '',
     })
 
-  //formUpdate function
 
     function formUpdate (event) {
       const {name,value} = event.target
@@ -40,7 +37,6 @@ export default function CharacterForm({onSubmit})  {
     onSubmit(characterForm)
   }
 
-//toggle function for spells
 
 function toggleSpell(spellName) {
   setCharacterForm(prev => {
@@ -59,13 +55,11 @@ function toggleSpell(spellName) {
 }
 
 
-//useState for races, classes and spells
 
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
   const[spells, setSpells] = useState([])
 
-  //useEffect races and classes
 
   useEffect(() => {
     async function fetchData() 
@@ -81,7 +75,6 @@ function toggleSpell(spellName) {
     fetchData()
   }, [])
  
- //useEffect spells
 
   useEffect(() => {
   if (characterForm.characterClass === ""){
@@ -97,24 +90,22 @@ function toggleSpell(spellName) {
     fetchData()
   }, [characterForm.characterClass])
 
-// ------- Map functions ----------
 
   //race
-  const raceOptions = races.map(element =>
-    <option key={element.index} value={element.index}>{element.name}</option>
+  const raceOptions = races.map(race =>
+    <option key={race.index} value={race.index}>{race.name}</option>
    )
 
    //class
-   const classOptions = classes.map(element =>
-    <option key={element.index} value= {element.index}>{element.name}</option>
+   const classOptions = classes.map(cls =>
+    <option key={cls.index} value= {cls.index}>{cls.name}</option>
    )
 
    //spells
-   const spellOptions = spells.slice(0, 20).map(element =>
-    <span key={element.index} onClick={() => toggleSpell(element.name)} >{element.name}</span>
+   const spellOptions = spells.slice(0, 20).map(spell=>
+    <span key={spell.index} onClick={() => toggleSpell(spell.name)} >{spell.name}</span>
    )
 console.log("Selected spells:", characterForm.characterSpells)
-// ------- Map functions ----------
 
   return (    
 
