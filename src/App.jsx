@@ -1,6 +1,7 @@
 import Header from './components/Header/Header.jsx';
 import Hero from './components/Hero/HeroSection.jsx';
 import CharacterForm from './components/CharacterForm/CharacterForm.jsx';
+import CharacterList from './components/CharacterList/CharacterList.jsx';
 import CharacterCard from './components/CharacterCard/CharacterCard.jsx';
 import {useState} from 'react';
 
@@ -10,18 +11,22 @@ function App() {
 
     function addCharacter(newCharacter) {
 
-      setCharacters(prev => [...prev, newCharacter])
+      setCharacters(prev => [...prev, { ...newCharacter, id: Date.now() }])
 
     }
 
     //console.log(characters);
+
+    function deleteCharacter (id) {
+      setCharacters(prev => prev.filter(character => character.id !== id))
+    }
 
   return (
     <div>
       <Header/>
       <Hero/>
       <CharacterForm onSubmit= {addCharacter} />
-      <CharacterCard/>
+      <CharacterList characters = {characters} deleteCharacter = {deleteCharacter}/>
     </div>
   )
 }

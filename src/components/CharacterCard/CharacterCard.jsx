@@ -1,4 +1,4 @@
-export default function CharacterCard({character})
+export default function CharacterCard({character, deleteCharacter})
 {
   return (
     <section>
@@ -20,7 +20,7 @@ export default function CharacterCard({character})
 
       <div>
         <button>Edit Character</button>
-        <button>Delete Character</button>
+        <button onClick = { () => deleteCharacter(character.id)}>Delete Character</button>
       </div>
   </section>
   )
