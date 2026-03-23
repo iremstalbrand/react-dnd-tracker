@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react'
 import { getRaces, getClasses, getSpells } from '../../api/dndApi'
 
 
-export default function CharacterForm({onSubmit})  {
+export default function CharacterForm({onSubmit, editingCharacter, onUpdate})  {
 
     const [characterForm , setCharacterForm] = useState({
       characterName: '',
@@ -32,9 +32,14 @@ export default function CharacterForm({onSubmit})  {
          //console.log(name,value);
     }
 
+
     function handleSubmit(event) {
     event.preventDefault()
-    onSubmit(characterForm)
+    if (editingCharacter) {
+      onUpdate(characterForm)
+    } else {
+      onSubmit(characterForm)
+    }
   }
 
 
@@ -91,6 +96,14 @@ function toggleSpell(spellName) {
   }, [characterForm.characterClass])
 
 
+
+  useEffect(() => {
+    if(editingCharacter) {
+      setCharacterForm(editingCharacter)
+    }
+  }, [editingCharacter])
+
+
   //race
   const raceOptions = races.map(race =>
     <option key={race.index} value={race.index}>{race.name}</option>
@@ -110,12 +123,12 @@ console.log("Selected spells:", characterForm.characterSpells)
   return (    
 
     <section className="form-section">
-      <h2> Create New Character</h2>
+      <h2>{editingCharacter ? "Edit Character" : "Create New Character"}</h2>
       <form onSubmit = {handleSubmit} className="character-form">
 
         <div>
           <label htmlFor="name">Character Name</label>
-          <input onChange={formUpdate} name = "characterName" id="name" type = "text" placeholder="Enter character name"/>
+          <input onChange={formUpdate} value={characterForm.characterName} name = "characterName" id="name" type = "text" placeholder="Enter character name" />
         </div>
         
         <label htmlFor="race">Race</label>
@@ -145,7 +158,7 @@ console.log("Selected spells:", characterForm.characterSpells)
         </select>
 
         <label htmlFor="level">Level</label>
-        <input onChange={formUpdate} name = "level" className="level" id="level" type="number" min="1" max="20" value={characterForm.level}/>
+        <input onChange={formUpdate} value={characterForm.level} name = "level" className="level" id="level" type="number" min="1" max="20"/>
         
 
         <div className="stats-container">
@@ -158,10 +171,10 @@ console.log("Selected spells:", characterForm.characterSpells)
         </div>
 
         <label htmlFor="backstory">Backstory</label>
-        <textarea onChange={formUpdate} name = "backstory" id="backstory" placeholder="Backstory of your character"></textarea>
+        <textarea onChange={formUpdate}  value={characterForm.backstory} name = "backstory" id="backstory" placeholder="Backstory of your character"></textarea>
 
         <div className="form-buttons">
-          <button type="submit"> + Create Character</button>
+          <button type="submit" > {editingCharacter ? "Save Changes" : "+ Create Character"}</button>
           <button type="button">Cancel</button>
         </div>
       </form>

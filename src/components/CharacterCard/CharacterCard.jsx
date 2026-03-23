@@ -1,4 +1,4 @@
-export default function CharacterCard({character, deleteCharacter})
+export default function CharacterCard({character, deleteCharacter, editCharacter})
 {
   return (
     <section>
@@ -19,7 +19,7 @@ export default function CharacterCard({character, deleteCharacter})
       <span>Backstory: {character.backstory}</span>
 
       <div>
-        <button>Edit Character</button>
+        <button onClick = { () => editCharacter(character)}>Edit Character</button>
         <button onClick = { () => deleteCharacter(character.id)}>Delete Character</button>
       </div>
   </section>
