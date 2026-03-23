@@ -1,183 +1,280 @@
-import './CharacterForm.css'
-import {useState,useEffect} from 'react'
-import { getRaces, getClasses, getSpells } from '../../api/dndApi'
+import "./CharacterForm.css";
+import { useState, useEffect } from "react";
+import { getRaces, getClasses, getSpells } from "../../api/dndApi";
 
+export default function CharacterForm({
+  onSubmit,
+  editingCharacter,
+  onUpdate,
+}) {
+  const [characterForm, setCharacterForm] = useState({
+    characterName: "",
+    characterRace: "",
+    characterClass: "",
+    characterSpells: [],
+    characterStatus: "Active",
+    level: 1,
+    str: 10,
+    dex: 10,
+    con: 10,
+    int: 10,
+    wis: 10,
+    cha: 10,
+    backstory: "",
+  });
 
-export default function CharacterForm({onSubmit, editingCharacter, onUpdate})  {
+  function formUpdate(event) {
+    const { name, value } = event.target;
+    setCharacterForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    //console.log(name,value);
+  }
 
-    const [characterForm , setCharacterForm] = useState({
-      characterName: '',
-      characterRace: '',
-      characterClass: '',
-      characterSpells: [],
-      characterStatus: 'Active',
-      level: 1,
-      str: 10,
-      dex:10,
-      con:10,
-      int:10,
-      wis:10,
-      cha:10,
-      backstory: '',
-    })
-
-
-    function formUpdate (event) {
-      const {name,value} = event.target
-      setCharacterForm(prev => ({
-        ...prev,
-        [name]: value
-
-      }))
-         //console.log(name,value);
-    }
-
-
-    function handleSubmit(event) {
-    event.preventDefault()
+  function handleSubmit(event) {
+    event.preventDefault();
     if (editingCharacter) {
-      onUpdate(characterForm)
+      onUpdate(characterForm);
     } else {
-      onSubmit(characterForm)
+      onSubmit(characterForm);
     }
   }
 
+  function toggleSpell(spellName) {
+    setCharacterForm((prev) => {
+      const isSelected = prev.characterSpells.includes(spellName);
 
-function toggleSpell(spellName) {
-  setCharacterForm(prev => {
-    const isSelected = prev.characterSpells.includes(spellName)
-
-    if(isSelected) {
-      const updatedSpells = prev.characterSpells.filter(
-        spell => spell !== spellName
-      )
-      return {...prev,characterSpells:updatedSpells}
-    } else {
-      const updatedSpells = [...prev.characterSpells, spellName]
-      return {...prev, characterSpells: updatedSpells}
-    }
-  })
-}
-
-
-
-  const [races, setRaces] = useState([])
-  const [classes, setClasses] = useState([])
-  const[spells, setSpells] = useState([])
-
-
-  useEffect(() => {
-    async function fetchData() 
-    {
-      const racesData = await getRaces()
-       //console.log("Races:", racesData)
-      setRaces(racesData)
-
-      const classesData = await getClasses()
-       //console.log("Classes:", classesData)
-      setClasses(classesData)
-    }
-    fetchData()
-  }, [])
- 
-
-  useEffect(() => {
-  if (characterForm.characterClass === ""){
-    setSpells([])
-    return
+      if (isSelected) {
+        const updatedSpells = prev.characterSpells.filter(
+          (spell) => spell !== spellName,
+        );
+        return { ...prev, characterSpells: updatedSpells };
+      } else {
+        const updatedSpells = [...prev.characterSpells, spellName];
+        return { ...prev, characterSpells: updatedSpells };
+      }
+    });
   }
-   async function fetchData()
-   {
-      const spellsData = await getSpells(characterForm.characterClass)
-       console.log("Spells:" , spellsData)
-      setSpells(spellsData)
-   } 
-    fetchData()
-  }, [characterForm.characterClass])
 
-
+  const [races, setRaces] = useState([]);
+  const [classes, setClasses] = useState([]);
+  const [spells, setSpells] = useState([]);
 
   useEffect(() => {
-    if(editingCharacter) {
-      setCharacterForm(editingCharacter)
-    }
-  }, [editingCharacter])
+    async function fetchData() {
+      const racesData = await getRaces();
+      //console.log("Races:", racesData)
+      setRaces(racesData);
 
+      const classesData = await getClasses();
+      //console.log("Classes:", classesData)
+      setClasses(classesData);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (characterForm.characterClass === "") {
+      setSpells([]);
+      return;
+    }
+    async function fetchData() {
+      const spellsData = await getSpells(characterForm.characterClass);
+      console.log("Spells:", spellsData);
+      setSpells(spellsData);
+    }
+    fetchData();
+  }, [characterForm.characterClass]);
+
+  useEffect(() => {
+    if (editingCharacter) {
+      setCharacterForm(editingCharacter);
+    }
+  }, [editingCharacter]);
 
   //race
-  const raceOptions = races.map(race =>
-    <option key={race.index} value={race.index}>{race.name}</option>
-   )
+  const raceOptions = races.map((race) => (
+    <option key={race.index} value={race.index}>
+      {race.name}
+    </option>
+  ));
 
-   //class
-   const classOptions = classes.map(cls =>
-    <option key={cls.index} value= {cls.index}>{cls.name}</option>
-   )
+  //class
+  const classOptions = classes.map((cls) => (
+    <option key={cls.index} value={cls.index}>
+      {cls.name}
+    </option>
+  ));
 
-   //spells
-   const spellOptions = spells.slice(0, 20).map(spell=>
-    <span key={spell.index} onClick={() => toggleSpell(spell.name)} >{spell.name}</span>
-   )
-console.log("Selected spells:", characterForm.characterSpells)
+  //spells
+  const spellOptions = spells.slice(0, 20).map((spell) => (
+    <span key={spell.index} onClick={() => toggleSpell(spell.name)}>
+      {spell.name}
+    </span>
+  ));
+  console.log("Selected spells:", characterForm.characterSpells);
 
-  return (    
-
+  return (
     <section className="form-section">
       <h2>{editingCharacter ? "Edit Character" : "Create New Character"}</h2>
-      <form onSubmit = {handleSubmit} className="character-form">
-
+      <form onSubmit={handleSubmit} className="character-form">
         <div>
           <label htmlFor="name">Character Name</label>
-          <input onChange={formUpdate} value={characterForm.characterName} name = "characterName" id="name" type = "text" placeholder="Enter character name" />
+          <input
+            onChange={formUpdate}
+            value={characterForm.characterName}
+            name="characterName"
+            id="name"
+            type="text"
+            placeholder="Enter character name"
+          />
         </div>
-        
+
         <label htmlFor="race">Race</label>
-        <select onChange={formUpdate} value={characterForm.characterRace} name = "characterRace" id="race">
+        <select
+          onChange={formUpdate}
+          value={characterForm.characterRace}
+          name="characterRace"
+          id="race"
+        >
           <option>Select race</option>
           {raceOptions}
         </select>
-        
+
         <label htmlFor="class">Class</label>
-        <select onChange={formUpdate} value={characterForm.characterClass} name = "characterClass" id="class">
+        <select
+          onChange={formUpdate}
+          value={characterForm.characterClass}
+          name="characterClass"
+          id="class"
+        >
           <option>Select class</option>
-           {classOptions}
+          {classOptions}
         </select>
 
-       <div className="spells-container">
-        <label>Spells</label>
-        <div className="spells-list">
-        {spells.length > 0 ? spellOptions : characterForm.characterClass ? <p>No spells for this class</p> : <p>Select a class first</p>}
+        <div className="spells-container">
+          <label>Spells</label>
+          <div className="spells-list">
+            {spells.length > 0 ? (
+              spellOptions
+            ) : characterForm.characterClass ? (
+              <p>No spells for this class</p>
+            ) : (
+              <p>Select a class first</p>
+            )}
+          </div>
         </div>
-       </div>
-
 
         <label htmlFor="status">Status</label>
-        <select onChange={formUpdate} value={characterForm.characterStatus} name = "characterStatus" id="status">
+        <select
+          onChange={formUpdate}
+          value={characterForm.characterStatus}
+          name="characterStatus"
+          id="status"
+        >
           <option>Active</option>
-          <option>Deceased</option> 
+          <option>Deceased</option>
         </select>
 
         <label htmlFor="level">Level</label>
-        <input onChange={formUpdate} value={characterForm.level} name = "level" className="level" id="level" type="number" min="1" max="20"/>
-        
+        <input
+          onChange={formUpdate}
+          value={characterForm.level}
+          name="level"
+          className="level"
+          id="level"
+          type="number"
+          min="1"
+          max="20"
+        />
 
         <div className="stats-container">
-          <label>STR(Strength)<input onChange={formUpdate} name = "str" type ="number" min="1" max="20" value={characterForm.str}/></label>
-          <label>DEX(Dexterity)<input onChange={formUpdate} name = "dex" type ="number" min="1" max="20" value={characterForm.dex}/></label>
-          <label>CON(Constitution)<input onChange={formUpdate} name = "con" type ="number" min="1" max="20" value={characterForm.con}/></label>
-          <label>INT(Intelligence)<input onChange={formUpdate} name = "int" type ="number" min="1" max="20" value={characterForm.int}/></label>
-          <label>WIS(Wisdom)<input onChange={formUpdate} name = "wis" type ="number" min="1" max="20" value={characterForm.wis}/></label>
-          <label>CHA(Charisma)<input onChange={formUpdate} name = "cha" type ="number" min="1" max="20" value={characterForm.cha}/></label>
+          <label>
+            STR(Strength)
+            <input
+              onChange={formUpdate}
+              name="str"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.str}
+            />
+          </label>
+          <label>
+            DEX(Dexterity)
+            <input
+              onChange={formUpdate}
+              name="dex"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.dex}
+            />
+          </label>
+          <label>
+            CON(Constitution)
+            <input
+              onChange={formUpdate}
+              name="con"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.con}
+            />
+          </label>
+          <label>
+            INT(Intelligence)
+            <input
+              onChange={formUpdate}
+              name="int"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.int}
+            />
+          </label>
+          <label>
+            WIS(Wisdom)
+            <input
+              onChange={formUpdate}
+              name="wis"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.wis}
+            />
+          </label>
+          <label>
+            CHA(Charisma)
+            <input
+              onChange={formUpdate}
+              name="cha"
+              type="number"
+              min="1"
+              max="20"
+              value={characterForm.cha}
+            />
+          </label>
         </div>
 
         <label htmlFor="backstory">Backstory</label>
-        <textarea onChange={formUpdate}  value={characterForm.backstory} name = "backstory" id="backstory" placeholder="Backstory of your character"></textarea>
+        <textarea
+          onChange={formUpdate}
+          value={characterForm.backstory}
+          name="backstory"
+          id="backstory"
+          placeholder="Backstory of your character"
+        ></textarea>
 
         <div className="form-buttons">
-          <button type="submit" > {editingCharacter ? "Save Changes" : "+ Create Character"}</button>
+          <button type="submit">
+            {" "}
+            {editingCharacter ? "Save Changes" : "+ Create Character"}
+          </button>
           <button type="button">Cancel</button>
         </div>
       </form>
     </section>
-  )
+  );
 }
