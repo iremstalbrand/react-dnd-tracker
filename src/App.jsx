@@ -3,6 +3,7 @@ import Hero from "./components/Hero/HeroSection.jsx";
 import CharacterForm from "./components/CharacterForm/CharacterForm.jsx";
 import CharacterList from "./components/CharacterList/CharacterList.jsx";
 import { useState } from "react";
+import { Routes, Route } from "react-router";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -35,17 +36,31 @@ function App() {
   return (
     <div>
       <Header />
-      <Hero />
-      <CharacterForm
-        onSubmit={addCharacter}
-        onUpdate={updateCharacter}
-        editingCharacter={editingCharacter}
-      />
-      <CharacterList
-        characters={characters}
-        deleteCharacter={deleteCharacter}
-        editCharacter={editCharacter}
-      />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+
+        <Route
+          path="/create"
+          element={
+            <CharacterForm
+              onSubmit={addCharacter}
+              onUpdate={updateCharacter}
+              editingCharacter={editingCharacter}
+            />
+          }
+        />
+
+        <Route
+          path="/characters"
+          element={
+            <CharacterList
+              characters={characters}
+              deleteCharacter={deleteCharacter}
+              editCharacter={editCharacter}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
