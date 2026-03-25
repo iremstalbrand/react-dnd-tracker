@@ -1,11 +1,12 @@
 import CharacterCard from "../CharacterCard/CharacterCard";
+import "./CharacterList.css";
 export default function CharacterList({
   characters,
   deleteCharacter,
   editCharacter,
 }) {
   return (
-    <section>
+    <section className="character-list">
       {characters.length > 0 ? (
         characters.map((character) => (
           <section key={character.id}>

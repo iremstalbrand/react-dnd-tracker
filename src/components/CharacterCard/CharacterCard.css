@@ -1,0 +1,122 @@
+
+.character-card {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+  padding: 1rem;
+  background: var(--card-bg);
+  max-width: 20rem;
+  height:25rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-transform: uppercase;
+}
+
+.card-header p {
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+  padding-top: 0.5rem;
+}
+
+.level-badge {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  background: var(--spell-bg);
+  border: 1px solid var(--spell-border);
+  border-radius: 50%;
+  color: var(--spell-text);
+}
+
+.card-stats, .card-spells, .card-backstory {
+  border-top: 1px solid var(--border);
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.card-stats h4, .card-spells h4, .card-backstory h4 {
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--stat-bg);
+  font-size: 0.7rem;
+}
+
+.spells-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.spell-badge {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  border: 1px solid var(--text-dim);
+}
+
+.card-backstory p {
+  font-style: italic;
+  font-size: 0.6rem;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-buttons button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-nav);
+}
+
+.card-buttons button:last-child {
+  border-color: var(--btn-delete-border);
+  color: var(--btn-delete-text);
+  background: var(--btn-delete-bg);
+}
+
+.card-content {
+  flex: 1;
+  overflow-y: auto;
+}
+.card-header, .card-buttons  {
+  flex-shrink: 0;
+}

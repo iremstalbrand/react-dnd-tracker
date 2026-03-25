@@ -7,18 +7,39 @@
 }
 
 :root {
+  /* Background */
   --bg-primary: #0c0a07;
-  --logo: rgba(212,168,85,0.75);
+  --card-bg: rgba(255, 255, 255, 0.015);
+  --stat-bg: rgba(0, 0, 0, 0.15);
+
+  /* Text */
+  --logo: rgba(212, 168, 85, 0.75);
   --text-nav: rgba(190, 170, 130, 0.8);
-  --border: rgba(190,170,130,0.06);
-  --font-display: 'Cinzel Decorative';
-  --font-heading: 'Cinzel';
-  --font-body: 'Crimson Text';
+  --text-dim: rgba(190, 170, 130, 0.35);
+
+  /* Borders */
+  --border: rgba(190, 170, 130, 0.06);
+  --border-light: rgba(190, 170, 130, 0.15);
+
+  /* Buttons */
   --btn-bg: rgba(110, 45, 45, 0.35);
   --btn-border: rgba(150, 65, 65, 0.45);
   --btn-text: rgba(220, 180, 160, 0.75);
   --btn-border-light: rgba(190, 170, 130, 0.18);
-} 
+  --btn-delete-bg: rgba(180, 60, 60, 0.06);
+  --btn-delete-border: rgba(180, 60, 60, 0.3);
+  --btn-delete-text: rgba(200, 80, 80, 0.6);
+
+  /* Spells */
+  --spell-bg: rgba(90, 70, 200, 0.1);
+  --spell-border: rgba(90, 70, 200, 0.25);
+  --spell-text: rgba(160, 140, 240, 0.8);
+
+  /* Fonts */
+  --font-display: 'Cinzel Decorative';
+  --font-heading: 'Cinzel';
+  --font-body: 'Crimson Text';
+}
 
 body {
   background: var(--bg-primary);

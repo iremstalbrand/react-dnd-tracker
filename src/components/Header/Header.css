@@ -30,15 +30,17 @@
   list-style: none;
   font-family: var(--font-heading);
 }
-.nav-links li {
+.nav-links a {
   font-size: 0.6rem;
   letter-spacing: 0.2rem;
   color: var(--text-dim);
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
 }
-.nav-links li:hover {
+.nav-links a:hover {
   color: var(--logo);
   border-bottom: 2px solid var(--logo);
 }
+

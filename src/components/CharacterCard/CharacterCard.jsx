@@ -1,31 +1,64 @@
+import "./CharacterCard.css";
 export default function CharacterCard({
   character,
   deleteCharacter,
   editCharacter,
 }) {
   return (
-    <section>
-      <span>Name: {character.characterName} </span>
-      <span>Race: {character.characterRace} </span>
-      <span>Class: {character.characterClass}</span>
-      <span>Spells: {character.characterSpells}</span>
-      <span>Status: {character.characterStatus}</span>
-      <div>
-        <span>STR:{character.str} </span>
-        <span>DEX: {character.dex}</span>
-        <span>CON:{character.con}</span>
-        <span>INT: {character.int} </span>
-        <span>WIS: {character.wis}</span>
-        <span>CHA: {character.cha} </span>
+    <section className="character-card">
+      <div className="card-header">
+        <div>
+          <h3>{character.characterName} </h3>
+          <p>
+            {character.characterRace} · {character.characterClass} ·{" "}
+            {character.characterStatus}
+          </p>
+        </div>
+        <span className="level-badge">{character.level}</span>
       </div>
-      <span>Level: {character.level}</span>
-      <span>Backstory: {character.backstory}</span>
+      <div className="card-content">
+        <div className="card-stats">
+          <h4> ABILITIES</h4>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <span>STR </span> <span>{character.str} </span>
+            </div>
+            <div className="stat-item">
+              <span>DEX </span> <span>{character.dex}</span>
+            </div>
+            <div className="stat-item">
+              <span>CON </span> <span>{character.con}</span>
+            </div>
+            <div className="stat-item">
+              <span>INT </span> <span> {character.int} </span>
+            </div>
+            <div className="stat-item">
+              <span>WIS </span> <span>{character.wis}</span>
+            </div>
+            <div className="stat-item">
+              <span>CHA </span> <span>{character.cha} </span>
+            </div>
+          </div>
+        </div>
 
-      <div>
-        <button onClick={() => editCharacter(character)}>Edit Character</button>
-        <button onClick={() => deleteCharacter(character.id)}>
-          Delete Character
-        </button>
+        <div className="card-spells">
+          <h4> SPELLS</h4>
+          <div className="spells-list">
+            {character.characterSpells.map((spell) => (
+              <span key={spell} className="spell-badge">
+                {spell}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="card-backstory">
+          <h4>BACKSTORY</h4>
+          <p>{character.backstory}</p>
+        </div>
+      </div>
+      <div className="card-buttons">
+        <button onClick={() => editCharacter(character)}>Edit</button>
+        <button onClick={() => deleteCharacter(character.id)}>Delete</button>
       </div>
     </section>
   );
