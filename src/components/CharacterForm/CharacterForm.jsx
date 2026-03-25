@@ -109,7 +109,13 @@ export default function CharacterForm({
 
   //spells
   const spellOptions = spells.slice(0, 20).map((spell) => (
-    <span key={spell.index} onClick={() => toggleSpell(spell.name)}>
+    <span
+      key={spell.index}
+      onClick={() => toggleSpell(spell.name)}
+      className={
+        characterForm.characterSpells.includes(spell.name) ? "selected" : ""
+      }
+    >
       {spell.name}
     </span>
   ));

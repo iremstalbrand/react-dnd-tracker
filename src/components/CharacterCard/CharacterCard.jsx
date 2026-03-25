@@ -1,9 +1,16 @@
 import "./CharacterCard.css";
+import { useNavigate } from "react-router";
 export default function CharacterCard({
   character,
   deleteCharacter,
   editCharacter,
 }) {
+  const navigate = useNavigate();
+
+  function handleEdit() {
+    editCharacter(character);
+    navigate("/create");
+  }
   return (
     <section className="character-card">
       <div className="card-header">
@@ -57,7 +64,7 @@ export default function CharacterCard({
         </div>
       </div>
       <div className="card-buttons">
-        <button onClick={() => editCharacter(character)}>Edit</button>
+        <button onClick={handleEdit}>Edit</button>
         <button onClick={() => deleteCharacter(character.id)}>Delete</button>
       </div>
     </section>
