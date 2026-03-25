@@ -1,18 +1,26 @@
+h2 {
+  padding-bottom:2rem;
+  font-family: var(--font-heading);
+}
+
 .character-form {
   display: flex;
   flex-direction: column;
+  padding: 2rem;
   gap:1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
 }
 
 .form-section {
-  max-width: 35rem;
+  max-width: 40rem;
   margin: 2rem auto;
   padding: 2rem;
 }
 
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -23,10 +31,77 @@
   gap: 1rem;
   padding-top: 2rem;
 }
-
-select {
-  width: 20%;
+select, input, textarea {
+  width: 100%;
+  background: var(--bg-primary);
+  color: var(--text-nav);
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
 }
-.level {
-  width: 10%;
+label {
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 0.7rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.form-buttons button[type="submit"] {
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+}
+
+.form-buttons button[type="button"] {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-nav);
+}
+
+.spells-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.spells-list span {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  background: var(--stat-bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.spells-list span.selected {
+  background: var(--spell-bg);
+  border: 1px solid var(--spell-border);
+  color: var(--spell-text);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
