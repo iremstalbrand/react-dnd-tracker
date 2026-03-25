@@ -5,7 +5,6 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  padding: 0 1.5rem;
   padding: 1rem 1.5rem;
 }
 
@@ -40,6 +39,11 @@
   transition: color 0.3s;
 }
 .nav-links a:hover {
+  color: var(--logo);
+  border-bottom: 2px solid var(--logo);
+}
+
+.nav-links a.active {
   color: var(--logo);
   border-bottom: 2px solid var(--logo);
 }

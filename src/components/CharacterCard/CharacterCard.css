@@ -1,7 +1,5 @@
 
 .character-card {
-  margin-top: 2rem;
-  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -18,10 +16,11 @@
   justify-content: space-between;
   align-items: flex-start;
   text-transform: uppercase;
+  
 }
 
 .card-header p {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1rem;
   padding-top: 0.5rem;
 }
@@ -47,7 +46,7 @@
 
 .card-stats h4, .card-spells h4, .card-backstory h4 {
   font-family: var(--font-heading);
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   letter-spacing: 3px;
   color: var(--text-dim);
   margin-bottom: 0.5rem;
@@ -85,7 +84,7 @@
 
 .card-backstory p {
   font-style: italic;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 
 .card-buttons {

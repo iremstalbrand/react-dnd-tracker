@@ -11,8 +11,6 @@ function App() {
     setCharacters((prev) => [...prev, { ...newCharacter, id: Date.now() }]);
   }
 
-  //console.log(characters);
-
   function deleteCharacter(id) {
     setCharacters((prev) => prev.filter((character) => character.id !== id));
   }

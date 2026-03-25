@@ -2,10 +2,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 1rem;
-  padding: 1rem;
   align-items: start;
+    padding: 0 2rem;
+
 }
 
-h2 {
+.character-list-section h2 {
+  padding:2rem;
+  font-family: var(--font-heading);
+}
+
+.character-list-section > p {
   padding: 2rem;
 }

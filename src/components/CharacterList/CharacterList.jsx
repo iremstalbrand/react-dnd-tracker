@@ -6,7 +6,7 @@ export default function CharacterList({
   editCharacter,
 }) {
   return (
-    <section>
+    <section className="character-list-section">
       <h2>Your Characters</h2>
       <div className="character-list">
         {characters.length > 0 ? (

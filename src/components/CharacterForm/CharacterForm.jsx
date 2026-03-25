@@ -1,27 +1,31 @@
 import "./CharacterForm.css";
 import { useState, useEffect } from "react";
 import { getRaces, getClasses, getSpells } from "../../api/dndApi";
+import { useNavigate } from "react-router";
+
+const formState = {
+  characterName: "",
+  characterRace: "",
+  characterClass: "",
+  characterSpells: [],
+  characterStatus: "Active",
+  level: 1,
+  str: 10,
+  dex: 10,
+  con: 10,
+  int: 10,
+  wis: 10,
+  cha: 10,
+  backstory: "",
+};
 
 export default function CharacterForm({
   onSubmit,
   editingCharacter,
   onUpdate,
 }) {
-  const [characterForm, setCharacterForm] = useState({
-    characterName: "",
-    characterRace: "",
-    characterClass: "",
-    characterSpells: [],
-    characterStatus: "Active",
-    level: 1,
-    str: 10,
-    dex: 10,
-    con: 10,
-    int: 10,
-    wis: 10,
-    cha: 10,
-    backstory: "",
-  });
+  const navigate = useNavigate();
+  const [characterForm, setCharacterForm] = useState(formState);
 
   function formUpdate(event) {
     const { name, value } = event.target;
@@ -29,7 +33,6 @@ export default function CharacterForm({
       ...prev,
       [name]: value,
     }));
-    //console.log(name,value);
   }
 
   function handleSubmit(event) {
@@ -39,6 +42,8 @@ export default function CharacterForm({
     } else {
       onSubmit(characterForm);
     }
+    setCharacterForm(formState);
+    navigate("/characters");
   }
 
   function toggleSpell(spellName) {
@@ -64,11 +69,9 @@ export default function CharacterForm({
   useEffect(() => {
     async function fetchData() {
       const racesData = await getRaces();
-      //console.log("Races:", racesData)
       setRaces(racesData);
 
       const classesData = await getClasses();
-      //console.log("Classes:", classesData)
       setClasses(classesData);
     }
     fetchData();
