@@ -27,25 +27,19 @@ A character tracker with full CRUD functionality, pulling race, class, and spell
 
 ## Tech Stack
 
-| Technology | Purpose |
-|-----------|---------|
-| React | UI and state management |
-| Vite | Build tool and dev server |
-| React Router | Client-side routing |
-| D&D 5e API | Reference data |
-| Vercel | Deployment |
+| Technology   | Purpose                   |
+| ------------ | ------------------------- |
+| React        | UI and state management   |
+| Vite         | Build tool and dev server |
+| React Router | Client-side routing       |
+| D&D 5e API   | Reference data            |
+| Vercel       | Deployment                |
 
 ## Project Structure
 
 Component-based architecture with separated concerns — each component has its own folder with dedicated `.jsx` and `.css` files. API logic is isolated in a dedicated `api/` directory.
 
 Each component has its own folder with `.jsx` and `.css` files.
-
-## How It Works
-
-App.jsx holds the central state — the character list and editing state. CharacterForm manages its own form data and API calls (races, classes, spells via useEffect). Data flows down through props: App → CharacterList → CharacterCard.
-
-When a class is selected, the app fetches that class's available spells. Users select spells by clicking badges. On submit, the character is added to the list (or updated if editing). On delete, it's filtered out.
 
 ## Getting Started
 
@@ -73,4 +67,3 @@ Opens at `http://localhost:5173`
 
 - [D&D 5e API](https://www.dnd5eapi.co/) for race, class, and spell data
 - [Google Fonts](https://fonts.google.com/) — Cinzel Decorative, Cinzel, Crimson Text
-
