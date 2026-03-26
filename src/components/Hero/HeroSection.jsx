@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <p className="hero-subtitle"> ✦ Welcome, adventurer ✦ </p>
-        <h2 className="hero-title">Guild Forge</h2>
+        <h2 className="hero-title">The Forge</h2>
         <p className="hero-description">
           {" "}
           Create your characters, assemble your party, prepare for adventure.
