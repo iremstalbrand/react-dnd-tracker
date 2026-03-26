@@ -1,16 +1,76 @@
-# React + Vite
+# D&D Character Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> ⚠️ **Work in Progress** — Core functionality is complete. Polish and additional features are in development.
 
-Currently, two official plugins are available:
+A React app for managing Dungeons & Dragons characters. Create, edit, and organize your party with real-time data from the D&D 5e API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **[Live Demo](https://react-dnd-tracker.vercel.app)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## The Problem
 
-## Expanding the ESLint configuration
+Managing D&D characters across sessions often means paper sheets, scattered notes, and forgotten spell lists. I wanted to build a single place to track stats, spells, and backstories while keeping the dark fantasy feel of the game.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## The Solution
+
+A character tracker with full CRUD functionality, pulling race, class, and spell data directly from the D&D 5e API. Characters are managed through React state with a component-based architecture that keeps things modular and easy to extend.
+
+## Features
+
+- Full CRUD — create, view, edit, and delete characters
+- D&D 5e API integration for races, classes, and spells
+- Dynamic spell fetching based on selected class
+- Toggle spell selection with visual feedback
+- Dark fantasy UI with custom fonts and CSS variable theming
+- Client-side routing with React Router
+
+## Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| React | UI and state management |
+| Vite | Build tool and dev server |
+| React Router | Client-side routing |
+| D&D 5e API | Reference data |
+| Vercel | Deployment |
+
+## Project Structure
+
+Component-based architecture with separated concerns — each component has its own folder with dedicated `.jsx` and `.css` files. API logic is isolated in a dedicated `api/` directory.
+
+Each component has its own folder with `.jsx` and `.css` files.
+
+## How It Works
+
+App.jsx holds the central state — the character list and editing state. CharacterForm manages its own form data and API calls (races, classes, spells via useEffect). Data flows down through props: App → CharacterList → CharacterCard.
+
+When a class is selected, the app fetches that class's available spells. Users select spells by clicking badges. On submit, the character is added to the list (or updated if editing). On delete, it's filtered out.
+
+## Getting Started
+
+```bash
+git clone https://github.com/iremstalbrand/react-dnd-tracker.git
+cd react-dnd-tracker
+npm install
+npm run dev
+```
+
+Opens at `http://localhost:5173`
+
+## Roadmap
+
+- Bestiary page — browse and filter monsters from the D&D 5e API
+- Form validation — required fields and stat range enforcement
+- Data persistence — save characters across sessions
+- Responsive design — optimized for mobile and tablet
+- About page — app guide for non-D&D players
+- Class-based card theming — dynamic colors per character class
+- Equipment tracking — assign weapons and armor from the API
+- Fullstack conversion — Node.js/Express backend with MongoDB for persistent character storage and user authentication
+
+## Acknowledgements
+
+- [D&D 5e API](https://www.dnd5eapi.co/) for race, class, and spell data
+- [Google Fonts](https://fonts.google.com/) — Cinzel Decorative, Cinzel, Crimson Text
+
