@@ -7,7 +7,7 @@ export default function Header() {
     <header className="header-container">
       <div className="header-logo">
         <img src={logo} alt=" Test logo" />
-        <h1>Test</h1>
+        <h1>Guild Forge</h1>
       </div>
       <nav>
         <ul className="nav-links">

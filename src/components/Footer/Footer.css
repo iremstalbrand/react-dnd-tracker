@@ -3,8 +3,8 @@
   padding: 2rem;
   border-top: 1px solid var(--border);
   font-family: var(--font-heading);
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   letter-spacing: 3px;
   color: var(--text-dim);
-    margin-top: auto;
+  margin-top: auto;
 }

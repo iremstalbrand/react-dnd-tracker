@@ -11,6 +11,7 @@
 .header-logo h1 {
   color: var(--logo);
   font-family: var(--font-display);
+  font-size: 1.8rem;
 }
 .header-logo {
   display: flex;
