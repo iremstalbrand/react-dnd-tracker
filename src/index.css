@@ -41,6 +41,12 @@
   --font-body: 'Crimson Text';
 }
 
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background: var(--bg-primary);
   font-family: 'Crimson Text', serif;

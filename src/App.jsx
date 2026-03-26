@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header.jsx";
 import Hero from "./components/Hero/HeroSection.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 import CharacterForm from "./components/CharacterForm/CharacterForm.jsx";
 import CharacterList from "./components/CharacterList/CharacterList.jsx";
 import { useState } from "react";
@@ -32,7 +33,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -59,6 +60,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
