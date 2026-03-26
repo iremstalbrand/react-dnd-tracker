@@ -119,3 +119,9 @@
 .card-header, .card-buttons  {
   flex-shrink: 0;
 }
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

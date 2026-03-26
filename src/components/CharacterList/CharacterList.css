@@ -15,3 +15,14 @@
 .character-list-section > p {
   padding: 2rem;
 }
+
+@media (max-width: 768px) {
+  .character-list {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .character-card {
+    margin: 0 auto;
+  }
+}

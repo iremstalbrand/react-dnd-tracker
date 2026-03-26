@@ -7,7 +7,7 @@ export default function CharacterList({
 }) {
   return (
     <section className="character-list-section">
-      <h2>Your Characters</h2>
+      <h2>Character List</h2>
       <div className="character-list">
         {characters.length > 0 ? (
           characters.map((character) => (
