@@ -46,6 +46,11 @@ export default function CharacterForm({
     navigate("/characters");
   }
 
+  function handleCancel() {
+    setCharacterForm(formState);
+    navigate("/characters");
+  }
+
   function toggleSpell(spellName) {
     setCharacterForm((prev) => {
       const isSelected = prev.characterSpells.includes(spellName);
@@ -281,7 +286,9 @@ export default function CharacterForm({
             {" "}
             {editingCharacter ? "Save Changes" : "+ Create Character"}
           </button>
-          <button type="button">Cancel</button>
+          <button type="button" onClick={handleCancel}>
+            Cancel
+          </button>
         </div>
       </form>
     </section>
