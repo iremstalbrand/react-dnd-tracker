@@ -35,13 +35,28 @@ export default function CharacterForm({
     }));
   }
 
+  const [errors, setErrors] = useState({});
+
   function handleSubmit(event) {
     event.preventDefault();
+
+    const newErrors = {};
+    if (!characterForm.characterName) {
+      newErrors.characterName = "Character name is required";
+    }
+    if (!characterForm.characterClass) {
+      newErrors.characterClass = "Class is required";
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     if (editingCharacter) {
       onUpdate(characterForm);
     } else {
       onSubmit(characterForm);
     }
+    setErrors({});
     setCharacterForm(formState);
     navigate("/characters");
   }
@@ -89,7 +104,6 @@ export default function CharacterForm({
     }
     async function fetchData() {
       const spellsData = await getSpells(characterForm.characterClass);
-      console.log("Spells:", spellsData);
       setSpells(spellsData);
     }
     fetchData();
@@ -101,21 +115,18 @@ export default function CharacterForm({
     }
   }, [editingCharacter]);
 
-  //race
   const raceOptions = races.map((race) => (
     <option key={race.index} value={race.index}>
       {race.name}
     </option>
   ));
 
-  //class
   const classOptions = classes.map((cls) => (
     <option key={cls.index} value={cls.index}>
       {cls.name}
     </option>
   ));
 
-  //spells
   const spellOptions = spells.slice(0, 20).map((spell) => (
     <span
       key={spell.index}
@@ -127,7 +138,6 @@ export default function CharacterForm({
       {spell.name}
     </span>
   ));
-  console.log("Selected spells:", characterForm.characterSpells);
 
   return (
     <section className="form-section">
@@ -143,6 +153,9 @@ export default function CharacterForm({
             type="text"
             placeholder="Enter character name"
           />
+          {errors.characterName && (
+            <p className="error-message">{errors.characterName}</p>
+          )}
         </div>
 
         <label htmlFor="race">Race</label>
