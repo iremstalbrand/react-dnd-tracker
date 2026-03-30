@@ -111,6 +111,13 @@
   color: var(--btn-delete-text);
   background: var(--btn-delete-bg);
 }
+.card-buttons button:hover {
+  background: rgba(190, 170, 130, 0.06);
+}
+
+.card-buttons button:last-child:hover {
+  background: rgba(180, 60, 60, 0.15);
+}
 
 .card-content {
   flex: 1;

@@ -72,6 +72,13 @@ label {
   border: 1px solid var(--border-light);
   color: var(--text-nav);
 }
+.form-buttons button[type="submit"]:hover {
+  background: rgba(110, 45, 45, 0.55);
+}
+
+.form-buttons button[type="button"]:hover {
+  background: rgba(190, 170, 130, 0.06);
+}
 
 .spells-list {
   display: flex;
@@ -100,10 +107,6 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 @media (max-width: 768px) {
