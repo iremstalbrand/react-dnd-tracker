@@ -18,14 +18,6 @@
   padding: 2rem;
 }
 
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .form-buttons {
   display: flex;
   gap: 1rem;
@@ -78,29 +70,6 @@ label {
 
 .form-buttons button[type="button"]:hover {
   background: rgba(190, 170, 130, 0.06);
-}
-
-.spells-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.spells-list span {
-  font-size: 0.75rem;
-  padding: 0.3rem 0.7rem;
-  border-radius: 3px;
-  background: var(--stat-bg);
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.spells-list span.selected {
-  background: var(--spell-bg);
-  border: 1px solid var(--spell-border);
-  color: var(--spell-text);
 }
 
 input[type="number"]::-webkit-inner-spin-button,

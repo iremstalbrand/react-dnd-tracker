@@ -3,17 +3,46 @@
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 1rem;
   align-items: start;
-    padding: 0 2rem;
-
-}
-
-.character-list-section h2 {
-  padding:2rem;
-  font-family: var(--font-heading);
-}
-
-.character-list-section > p {
   padding: 2rem;
+
+
+}
+.empty-list {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.empty-list img {
+  width: 100%;
+  display: block;
+  min-height: 25rem;
+  object-fit: cover;
+}
+
+.empty-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(12, 10, 7, 0.75);
+}
+
+.empty-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.empty-content p {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -24,5 +53,25 @@
 
   .character-card {
     margin: 0 auto;
+  }
+  .empty-list {
+    position: static;
+  }
+
+  .empty-list img {
+    padding-top: 5rem;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .empty-overlay {
+    display: none;
+  }
+
+  .empty-content {
+    position: static;
+    transform: none;
+    padding: 1.5rem;
+    text-align: center;
   }
 }

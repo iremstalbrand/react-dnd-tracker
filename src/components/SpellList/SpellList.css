@@ -1,0 +1,22 @@
+.spells-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.spells-list span {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  background: var(--stat-bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.spells-list span.selected {
+  background: var(--spell-bg);
+  border: 1px solid var(--spell-border);
+  color: var(--spell-text);
+}

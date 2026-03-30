@@ -1,5 +1,7 @@
 import CharacterCard from "../CharacterCard/CharacterCard";
 import "./CharacterList.css";
+import image from "../../assets/empty-list.jpg";
+
 export default function CharacterList({
   characters,
   deleteCharacter,
@@ -7,23 +9,26 @@ export default function CharacterList({
 }) {
   return (
     <section className="character-list-section">
-      <h2>Character List</h2>
-      <div className="character-list">
-        {characters.length > 0 ? (
-          characters.map((character) => (
-            <section key={character.id}>
-              {" "}
-              <CharacterCard
-                character={character}
-                deleteCharacter={deleteCharacter}
-                editCharacter={editCharacter}
-              />{" "}
-            </section>
-          ))
-        ) : (
-          <p>You don't have any characters yet.</p>
-        )}
-      </div>
+      {characters.length > 0 ? (
+        <div className="character-list">
+          {characters.map((character) => (
+            <CharacterCard
+              key={character.id}
+              character={character}
+              deleteCharacter={deleteCharacter}
+              editCharacter={editCharacter}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-list">
+          <img className="empty-list" src={image} alt="empty dnd party" />
+          <div className="empty-overlay"></div>
+          <div className="empty-content">
+            <p>You don't have any characters yet.</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

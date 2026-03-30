@@ -2,6 +2,8 @@ import "./CharacterForm.css";
 import { useState, useEffect } from "react";
 import { getRaces, getClasses, getSpells } from "../../api/dndApi";
 import { useNavigate } from "react-router";
+import StatsBlock from "../StatsBlock/StatsBlock";
+import SpellList from "../SpellList/SpellList";
 
 const formState = {
   characterName: "",
@@ -46,6 +48,9 @@ export default function CharacterForm({
     }
     if (!characterForm.characterClass) {
       newErrors.characterClass = "Class is required";
+    }
+    if (!characterForm.characterRace) {
+      newErrors.characterRace = "Race is required";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -127,18 +132,6 @@ export default function CharacterForm({
     </option>
   ));
 
-  const spellOptions = spells.slice(0, 20).map((spell) => (
-    <span
-      key={spell.index}
-      onClick={() => toggleSpell(spell.name)}
-      className={
-        characterForm.characterSpells.includes(spell.name) ? "selected" : ""
-      }
-    >
-      {spell.name}
-    </span>
-  ));
-
   return (
     <section className="form-section">
       <h2>{editingCharacter ? "Edit Character" : "Create New Character"}</h2>
@@ -168,6 +161,9 @@ export default function CharacterForm({
           <option>Select race</option>
           {raceOptions}
         </select>
+        {errors.characterRace && (
+          <p className="error-message">{errors.characterRace}</p>
+        )}
 
         <label htmlFor="class">Class</label>
         <select
@@ -179,19 +175,15 @@ export default function CharacterForm({
           <option>Select class</option>
           {classOptions}
         </select>
-
-        <div className="spells-container">
-          <label>Spells</label>
-          <div className="spells-list">
-            {spells.length > 0 ? (
-              spellOptions
-            ) : characterForm.characterClass ? (
-              <p>No spells for this class</p>
-            ) : (
-              <p>Select a class first</p>
-            )}
-          </div>
-        </div>
+        {errors.characterClass && (
+          <p className="error-message">{errors.characterClass}</p>
+        )}
+        <SpellList
+          spells={spells}
+          characterSpells={characterForm.characterSpells}
+          toggleSpell={toggleSpell}
+          characterClass={characterForm.characterClass}
+        />
 
         <label htmlFor="status">Status</label>
         <select
@@ -215,76 +207,7 @@ export default function CharacterForm({
           min="1"
           max="20"
         />
-
-        <div className="stats-container">
-          <label>
-            STR(Strength)
-            <input
-              onChange={formUpdate}
-              name="str"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.str}
-            />
-          </label>
-          <label>
-            DEX(Dexterity)
-            <input
-              onChange={formUpdate}
-              name="dex"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.dex}
-            />
-          </label>
-          <label>
-            CON(Constitution)
-            <input
-              onChange={formUpdate}
-              name="con"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.con}
-            />
-          </label>
-          <label>
-            INT(Intelligence)
-            <input
-              onChange={formUpdate}
-              name="int"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.int}
-            />
-          </label>
-          <label>
-            WIS(Wisdom)
-            <input
-              onChange={formUpdate}
-              name="wis"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.wis}
-            />
-          </label>
-          <label>
-            CHA(Charisma)
-            <input
-              onChange={formUpdate}
-              name="cha"
-              type="number"
-              min="1"
-              max="20"
-              value={characterForm.cha}
-            />
-          </label>
-        </div>
-
+        <StatsBlock characterForm={characterForm} formUpdate={formUpdate} />
         <label htmlFor="backstory">Backstory</label>
         <textarea
           onChange={formUpdate}
