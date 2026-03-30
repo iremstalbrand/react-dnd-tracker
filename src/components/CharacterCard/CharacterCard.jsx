@@ -64,8 +64,18 @@ export default function CharacterCard({
         </div>
       </div>
       <div className="card-buttons">
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={() => deleteCharacter(character.id)}>Delete</button>
+        <button
+          onClick={handleEdit}
+          aria-label={`Edit ${character.characterName}`}
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => deleteCharacter(character.id)}
+          aria-label={`Delete ${character.characterName}`}
+        >
+          Delete
+        </button>
       </div>
     </section>
   );

@@ -15,10 +15,15 @@ export default function HeroSection() {
         </p>
         <div className="hero-buttons">
           <Link to="/create">
-            <button className="create-btn"> + Create new character</button>
+            <button className="create-btn" aria-label="Create new character">
+              {" "}
+              + Create new character
+            </button>
           </Link>
           <Link to="/characters">
-            <button className="view-btn">View characters</button>
+            <button className="view-btn" aria-label="View all characters">
+              View characters
+            </button>
           </Link>
         </div>
       </div>

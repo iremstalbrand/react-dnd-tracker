@@ -22,7 +22,7 @@ export default function CharacterList({
         </div>
       ) : (
         <div className="empty-list">
-          <img className="empty-list" src={image} alt="empty dnd party" />
+          <img className="empty-image" src={image} alt="empty dnd party" />
           <div className="empty-overlay"></div>
           <div className="empty-content">
             <p>You don't have any characters yet.</p>

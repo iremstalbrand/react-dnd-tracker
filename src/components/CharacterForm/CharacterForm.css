@@ -23,7 +23,9 @@
   gap: 1rem;
   padding-top: 2rem;
 }
-select, input, textarea {
+.character-form select,
+.character-form input,
+.character-form textarea {
   width: 100%;
   background: var(--bg-primary);
   color: var(--text-nav);
@@ -33,7 +35,7 @@ select, input, textarea {
   font-family: var(--font-body);
   font-size: 0.9rem;
 }
-label {
+character-form label {
   font-family: var(--font-heading);
   font-size: 0.55rem;
   letter-spacing: 3px;
@@ -78,13 +80,31 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+.error-message {
+  color: var(--btn-delete-text);
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--btn-delete-bg);
+  border: 1px solid var(--btn-delete-border);
+  border-radius: 3px;
+}
+
+@media (max-width: 480px) {
+  .form-section h2 {
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+  }
   .form-section {
-    padding: 1rem;
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
   }
 
   .character-form {
-    padding: 1rem;
+    padding: 0.7rem;
+    border: none;
   }
 
   .stats-container {

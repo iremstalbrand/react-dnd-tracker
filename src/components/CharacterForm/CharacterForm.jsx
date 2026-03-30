@@ -135,7 +135,11 @@ export default function CharacterForm({
   return (
     <section className="form-section">
       <h2>{editingCharacter ? "Edit Character" : "Create New Character"}</h2>
-      <form onSubmit={handleSubmit} className="character-form">
+      <form
+        onSubmit={handleSubmit}
+        className="character-form"
+        aria-label="Character creation form"
+      >
         <div>
           <label htmlFor="name">Character Name</label>
           <input
@@ -158,7 +162,7 @@ export default function CharacterForm({
           name="characterRace"
           id="race"
         >
-          <option>Select race</option>
+          <option value="">Select race</option>
           {raceOptions}
         </select>
         {errors.characterRace && (
@@ -172,7 +176,7 @@ export default function CharacterForm({
           name="characterClass"
           id="class"
         >
-          <option>Select class</option>
+          <option value="">Select class</option>
           {classOptions}
         </select>
         {errors.characterClass && (

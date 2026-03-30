@@ -46,7 +46,6 @@
 }
 
 .create-btn , .view-btn {
-  padding: 0.8rem 2rem;
   font-family: var(--font-heading);
   font-size: 0.6rem;
   letter-spacing: 0.2rem;
@@ -54,7 +53,7 @@
   border-radius: 2px;
   width: 15rem;
   height: 3.2rem; 
-  padding: 0.8rem 0;;
+  padding: 0.8rem 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
