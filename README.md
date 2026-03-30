@@ -37,9 +37,27 @@ A character tracker with full CRUD functionality, pulling race, class, and spell
 
 ## Project Structure
 
-Component-based architecture with separated concerns — each component has its own folder with dedicated `.jsx` and `.css` files. API logic is isolated in a dedicated `api/` directory.
+```
+src/
+├── api/
+│   └── dndApi.js
+├── components/
+│   ├── About/
+│   ├── CharacterCard/
+│   ├── CharacterForm/
+│   ├── CharacterList/
+│   ├── Footer/
+│   ├── Header/
+│   ├── Hero/
+│   ├── SpellList/
+│   └── StatsBlock/
+├── assets/
+├── App.jsx
+├── index.css
+└── main.jsx
+```
 
-Each component has its own folder with `.jsx` and `.css` files.
+Component-based architecture with separated concerns. Each component has its own folder with dedicated `.jsx` and `.css` files. API logic is isolated in a dedicated `api/` directory.
 
 ## Getting Started
 
@@ -54,13 +72,16 @@ Opens at `http://localhost:5173`
 
 ## Roadmap
 
-- Bestiary page — browse and filter monsters from the D&D 5e API
-- Form validation — required fields and stat range enforcement
-- Data persistence — save characters across sessions
-- Responsive design — optimized for mobile and tablet
-- About page — app guide for non-D&D players
-- Class-based card theming — dynamic colors per character class
+- Custom delete confirmation modal to replace browser default dialog
 - Equipment tracking — assign weapons and armor from the API
+- Ability selection based on character class
+- Bestiary page — browse and filter monsters from the D&D 5e API
+- NPC creation and listing
+- Data persistence — save characters across sessions
+- Responsive design — optimized for tablet
+- Class-based card theming — dynamic colors per character class
+- Custom image upload (map, character avatar, etc.)
+- Session builder for each game
 - Fullstack conversion — Node.js/Express backend with MongoDB for persistent character storage and user authentication
 
 ## Acknowledgements
