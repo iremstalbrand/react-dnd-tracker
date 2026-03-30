@@ -3,6 +3,7 @@ import Hero from "./components/Hero/HeroSection.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import CharacterForm from "./components/CharacterForm/CharacterForm.jsx";
 import CharacterList from "./components/CharacterList/CharacterList.jsx";
+import About from "./components/About/About.jsx";
 import { useState } from "react";
 import { Routes, Route } from "react-router";
 
@@ -20,8 +21,6 @@ function App() {
   function editCharacter(selectedCharacter) {
     setEditingCharacter(selectedCharacter);
   }
-
-  console.log("Editing:", editingCharacter);
 
   function updateCharacter(updatedCharacter) {
     setCharacters((prev) =>
@@ -59,6 +58,7 @@ function App() {
             />
           }
         />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </div>
