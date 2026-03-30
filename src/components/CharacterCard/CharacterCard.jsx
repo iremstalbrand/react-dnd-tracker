@@ -11,6 +11,12 @@ export default function CharacterCard({
     editCharacter(character);
     navigate("/create");
   }
+
+  function handleDelete() {
+    if (window.confirm("Are you sure you want to delete this character?")) {
+      deleteCharacter(character.id);
+    }
+  }
   return (
     <section className="character-card">
       <div className="card-header">
@@ -71,7 +77,7 @@ export default function CharacterCard({
           Edit
         </button>
         <button
-          onClick={() => deleteCharacter(character.id)}
+          onClick={handleDelete}
           aria-label={`Delete ${character.characterName}`}
         >
           Delete

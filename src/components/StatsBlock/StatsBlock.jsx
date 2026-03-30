@@ -8,8 +8,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="str"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.str}
         />
       </label>
@@ -19,8 +17,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="dex"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.dex}
         />
       </label>
@@ -30,8 +26,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="con"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.con}
         />
       </label>
@@ -41,8 +35,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="int"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.int}
         />
       </label>
@@ -52,8 +44,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="wis"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.wis}
         />
       </label>
@@ -63,8 +53,6 @@ export default function StatsBlock({ characterForm, formUpdate }) {
           onChange={formUpdate}
           name="cha"
           type="number"
-          min="1"
-          max="20"
           value={characterForm.cha}
         />
       </label>

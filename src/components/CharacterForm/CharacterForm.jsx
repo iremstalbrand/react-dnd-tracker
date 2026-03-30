@@ -35,6 +35,19 @@ export default function CharacterForm({
       ...prev,
       [name]: value,
     }));
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+    const statNames = ["str", "dex", "con", "int", "wis", "cha"];
+    if (statNames.includes(name) && errors.stats) {
+      setErrors((prev) => ({
+        ...prev,
+        stats: "",
+      }));
+    }
   }
 
   const [errors, setErrors] = useState({});
@@ -51,6 +64,15 @@ export default function CharacterForm({
     }
     if (!characterForm.characterRace) {
       newErrors.characterRace = "Race is required";
+    }
+    const stats = ["str", "dex", "con", "int", "wis", "cha"];
+    stats.forEach((stat) => {
+      if (Number(characterForm[stat]) < 1 || Number(characterForm[stat]) > 20) {
+        newErrors.stats = "All stats must be between 1 and 20";
+      }
+    });
+    if (Number(characterForm.level) > 20 || Number(characterForm.level) < 1) {
+      newErrors.level = "Level must be between 1 and 20";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -208,10 +230,10 @@ export default function CharacterForm({
           className="level"
           id="level"
           type="number"
-          min="1"
-          max="20"
         />
+        {errors.level && <p className="error-message">{errors.level}</p>}
         <StatsBlock characterForm={characterForm} formUpdate={formUpdate} />
+        {errors.stats && <p className="error-message">{errors.stats}</p>}
         <label htmlFor="backstory">Backstory</label>
         <textarea
           onChange={formUpdate}
