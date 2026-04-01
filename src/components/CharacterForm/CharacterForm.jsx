@@ -67,15 +67,30 @@ export default function CharacterForm({
     }
     const stats = ["str", "dex", "con", "int", "wis", "cha"];
     stats.forEach((stat) => {
+      if (!Number.isInteger(Number(characterForm[stat]))) {
+        newErrors.stats = "Stats must be whole numbers";
+        return;
+      }
       if (Number(characterForm[stat]) < 1 || Number(characterForm[stat]) > 20) {
         newErrors.stats = "All stats must be between 1 and 20";
       }
     });
-    if (Number(characterForm.level) > 20 || Number(characterForm.level) < 1) {
+    if (!Number.isInteger(Number(characterForm.level))) {
+      newErrors.level = "Level must be a whole number";
+    } else if (
+      Number(characterForm.level) > 20 ||
+      Number(characterForm.level) < 1
+    ) {
       newErrors.level = "Level must be between 1 and 20";
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      setTimeout(() => {
+        const errorElement = document.querySelector(".error-message");
+        if (errorElement) {
+          errorElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
       return;
     }
     if (editingCharacter) {
