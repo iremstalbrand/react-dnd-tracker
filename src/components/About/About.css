@@ -56,7 +56,7 @@
 }
 
 .about-block a {
-  color: var(--logo);
+  color: var(--text-primary);
   text-decoration: none;
 }
 

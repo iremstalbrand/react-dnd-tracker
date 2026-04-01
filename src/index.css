@@ -13,7 +13,7 @@
   --stat-bg: rgba(0, 0, 0, 0.15);
 
   /* Text */
-  --logo: rgba(212, 168, 85, 0.75);
+  --text-primary: rgba(212, 168, 85, 0.75);
   --text-nav: rgba(190, 170, 130, 0.8);
   --text-dim: rgba(190, 170, 130, 0.70);
 
@@ -59,7 +59,7 @@ body {
   transform: translateX(-50%);
   background: var(--card-bg);
   border: 1px solid var(--border-light);
-  color: var(--logo);
+  color: var(--text-primary);
   padding: 0.8rem 2rem;
   border-radius: 5px;
   font-family: var(--font-heading);

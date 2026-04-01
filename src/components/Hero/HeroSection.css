@@ -87,7 +87,7 @@
   font-family: var(--font-heading);
   font-size: 0.8rem;
   letter-spacing: 0.4rem;
-  color: var(--logo);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -95,9 +95,10 @@
   font-size: 0.8rem;
   font-style: italic;
   letter-spacing: 0.1rem;
-  color: var(--logo);
+  color: var(-text-primary);
   margin-bottom: 0.5rem;
 }
+
 @media (max-width: 768px) {
   .hero-container {
     position: static;
@@ -106,6 +107,7 @@
   .hero-image {
     max-height: none;
     object-fit: contain;
+    padding-bottom: 2.5rem;
   }
 
   .hero-overlay {
