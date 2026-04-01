@@ -7,13 +7,12 @@ export default function CharacterCard({
   editCharacter,
 }) {
   const navigate = useNavigate();
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   function handleEdit() {
     editCharacter(character);
     navigate("/create");
   }
-
-  const [confirmDelete, setConfirmDelete] = useState(false);
 
   function handleDelete() {
     if (confirmDelete) {

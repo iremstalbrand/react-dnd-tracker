@@ -26,8 +26,13 @@ export default function CharacterForm({
   editingCharacter,
   onUpdate,
 }) {
+  // --------- STATE ---------
+
   const navigate = useNavigate();
   const [characterForm, setCharacterForm] = useState(formState);
+  const [errors, setErrors] = useState({});
+
+  // --------- HANDLERS ---------
 
   function formUpdate(event) {
     const { name, value } = event.target;
@@ -49,8 +54,6 @@ export default function CharacterForm({
       }));
     }
   }
-
-  const [errors, setErrors] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -124,6 +127,8 @@ export default function CharacterForm({
     });
   }
 
+  // --------- API ---------
+
   const [races, setRaces] = useState([]);
   const [classes, setClasses] = useState([]);
   const [spells, setSpells] = useState([]);
@@ -156,6 +161,8 @@ export default function CharacterForm({
       setCharacterForm(editingCharacter);
     }
   }, [editingCharacter]);
+
+  // --------- OPTIONS ---------
 
   const raceOptions = races.map((race) => (
     <option key={race.index} value={race.index}>
