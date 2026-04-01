@@ -4,11 +4,11 @@ import image from "../../assets/About.jpg";
 export default function About() {
   return (
     <section className="about-section">
-      <img className="about-image" src={image} alt="d&d party " />
+      <img className="about-image" src={image} alt="d&d party" />
       <div className="about-overlay"></div>
       <div className="about-content">
         <div className="about-block">
-          <h3>What is this?</h3>
+          <h2>What is this?</h2>
           <p>
             The Forge is a character management tool for Dungeons and Dragons
             5th Edition. Both players and Dungeon Masters can create, edit, and
@@ -17,7 +17,7 @@ export default function About() {
           </p>
         </div>
         <div className="about-block">
-          <h3>New to DnD?</h3>
+          <h2>New to DnD?</h2>
           <p>
             Dungeons and Dragons is a tabletop role-playing game where players
             create characters and embark on adventures guided by a Dungeon
@@ -28,7 +28,7 @@ export default function About() {
           </p>
         </div>
         <div className="about-block">
-          <h3>How to use</h3>
+          <h2>How to use</h2>
           <p>
             Navigate to New Character to create your first adventurer. Choose a
             race and class, assign your stats, pick your spells, and write a
@@ -37,7 +37,7 @@ export default function About() {
           </p>
         </div>
         <div className="about-block">
-          <h3>Data</h3>
+          <h2>Data</h2>
           <p>
             All race, class, and spell data is fetched from the open-source DnD
             5e API. Character data is stored locally in your browser session and

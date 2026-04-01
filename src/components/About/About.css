@@ -41,9 +41,9 @@
 
 }
 
-.about-block h3 {
+.about-block h2 {
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--text-dim);
@@ -51,7 +51,7 @@
 }
 
 .about-block p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
@@ -80,4 +80,8 @@
   .about-image {
     min-height: 15rem;
   }
+
+.about-block h2 {
+  font-size: 0.8rem;
+}
 }

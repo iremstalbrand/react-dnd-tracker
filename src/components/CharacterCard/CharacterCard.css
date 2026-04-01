@@ -44,9 +44,9 @@
   padding-bottom: 0.8rem;
 }
 
-.card-stats h4, .card-spells h4, .card-backstory h4 {
+.card-stats h3, .card-spells h3, .card-backstory h3 {
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 3px;
   color: var(--text-dim);
   margin-bottom: 0.5rem;
@@ -73,18 +73,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  
 }
 
-.spell-badge {
+span.spell-badge {
   font-size: 0.75rem;
   padding: 0.3rem 0.7rem;
-  border-radius: 3px;
-  border: 1px solid var(--text-dim);
+  background: var(--spell-bg);
+  border: 1px solid var(--spell-border);
+  color: var(--spell-text);
+  
+
 }
 
 .card-backstory p {
   font-style: italic;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -100,8 +105,8 @@
   padding: 0.5rem;
   border-radius: 3px;
   font-family: var(--font-heading);
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
   cursor: pointer;
   text-transform: uppercase;
   background: transparent;

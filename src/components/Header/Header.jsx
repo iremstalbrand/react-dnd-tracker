@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="header-container">
       <div className="header-logo">
-        <img src={logo} alt=" The Forge logo" />
+        <img src={logo} alt="The Forge logo" />
         <h1>The Forge</h1>
       </div>
       <nav aria-label="Main navigation">

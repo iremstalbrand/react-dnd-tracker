@@ -25,7 +25,7 @@ export default function CharacterCard({
     <section className="character-card">
       <div className="card-header">
         <div>
-          <h3>{character.characterName} </h3>
+          <h2>{character.characterName} </h2>
           <p>
             {character.characterRace} · {character.characterClass} ·{" "}
             {character.characterStatus}
@@ -35,7 +35,7 @@ export default function CharacterCard({
       </div>
       <div className="card-content">
         <div className="card-stats">
-          <h4> ABILITIES</h4>
+          <h3> ABILITIES</h3>
           <div className="stats-grid">
             <div className="stat-item">
               <span>STR </span> <span>{character.str} </span>
@@ -60,7 +60,7 @@ export default function CharacterCard({
 
         {character.characterSpells.length > 0 && (
           <div className="card-spells">
-            <h4> SPELLS</h4>
+            <h3> SPELLS</h3>
             <div className="spells-list">
               {character.characterSpells.map((spell) => (
                 <span key={spell} className="spell-badge">
@@ -71,7 +71,7 @@ export default function CharacterCard({
           </div>
         )}
         <div className="card-backstory">
-          <h4>BACKSTORY</h4>
+          <h3>BACKSTORY</h3>
           <p>{character.backstory}</p>
         </div>
       </div>
