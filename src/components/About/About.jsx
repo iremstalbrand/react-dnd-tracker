@@ -11,8 +11,9 @@ export default function About() {
           <h3>What is this?</h3>
           <p>
             The Forge is a character management tool for Dungeons and Dragons
-            5th Edition. It lets you create, edit, and organize your adventuring
-            party in one place with stats, spells, and backstories.
+            5th Edition. Both players and Dungeon Masters can create, edit, and
+            organize characters in one place with stats, spells, and
+            backstories.
           </p>
         </div>
         <div className="about-block">
