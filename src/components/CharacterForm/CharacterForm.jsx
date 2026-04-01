@@ -193,6 +193,7 @@ export default function CharacterForm({
             id="name"
             type="text"
             placeholder="Enter character name"
+            maxLength={20}
           />
           {errors.characterName && (
             <p className="error-message">{errors.characterName}</p>

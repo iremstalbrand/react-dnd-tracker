@@ -85,7 +85,10 @@
 .card-backstory p {
   font-style: italic;
   font-size: 0.7rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 
 .card-buttons {
   display: flex;
@@ -126,6 +129,7 @@
 .card-header, .card-buttons  {
   flex-shrink: 0;
 }
+
 
 @media (max-width: 768px) {
   .stats-grid {
