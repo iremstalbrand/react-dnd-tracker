@@ -1,10 +1,9 @@
 .character-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   align-items: start;
-  padding: 2rem;
-
+  padding: 3rem;
 }
 .empty-list {
   position: relative;
@@ -47,29 +46,34 @@
 @media (max-width: 768px) {
   .character-list {
     grid-template-columns: 1fr;
-    padding: 1rem;
+    padding: 3rem;
   }
 
   .character-card {
     margin: 0 auto;
   }
-  .empty-list {
-    position: static;
+   .empty-list {
+    min-height: 80vh;
   }
 
   .empty-list img {
-    min-height: auto;
+    position:absolute;
+    top:0;
+    left:0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .empty-overlay {
-    display: none;
+    display: block;
+    background: rgba(12, 10, 7, 0.7);
   }
 
   .empty-content {
-    position: static;
-    transform: none;
-    padding: 1.5rem;
-    text-align: center;
-  }
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    padding: 0.5rem;
+}
 }

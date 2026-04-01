@@ -1,5 +1,6 @@
 import "./CharacterCard.css";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 export default function CharacterCard({
   character,
   deleteCharacter,
@@ -12,9 +13,13 @@ export default function CharacterCard({
     navigate("/create");
   }
 
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
   function handleDelete() {
-    if (window.confirm("Are you sure you want to delete this character?")) {
+    if (confirmDelete) {
       deleteCharacter(character.id);
+    } else {
+      setConfirmDelete(true);
     }
   }
   return (
@@ -83,7 +88,7 @@ export default function CharacterCard({
           onClick={handleDelete}
           aria-label={`Delete ${character.characterName}`}
         >
-          Delete
+          {confirmDelete ? "Are you sure?" : "Delete"}
         </button>
       </div>
     </section>
