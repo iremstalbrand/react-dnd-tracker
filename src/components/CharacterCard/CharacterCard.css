@@ -130,6 +130,18 @@
   flex-shrink: 0;
 }
 
+.card-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 2px;
+}
+
+.card-content::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 @media (max-width: 768px) {
   .stats-grid {
