@@ -95,7 +95,7 @@
   font-size: 0.8rem;
   font-style: italic;
   letter-spacing: 0.1rem;
-  color: var(-text-primary);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
