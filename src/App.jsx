@@ -9,15 +9,21 @@ import { Routes, Route } from "react-router";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [editingCharacter, setEditingCharacter] = useState(null);
+  const [notification, setNotification] = useState("");
+
   function addCharacter(newCharacter) {
     setCharacters((prev) => [...prev, { ...newCharacter, id: Date.now() }]);
+    setNotification("Character created!");
+    setTimeout(() => setNotification(""), 3000);
   }
 
   function deleteCharacter(id) {
     setCharacters((prev) => prev.filter((character) => character.id !== id));
+    setNotification("Character deleted!");
+    setTimeout(() => setNotification(""), 3000);
   }
 
-  const [editingCharacter, setEditingCharacter] = useState(null);
   function editCharacter(selectedCharacter) {
     setEditingCharacter(selectedCharacter);
   }
@@ -29,11 +35,14 @@ function App() {
       ),
     );
     setEditingCharacter(null);
+    setNotification("Character updated!");
+    setTimeout(() => setNotification(""), 3000);
   }
 
   return (
     <div className="app-container">
       <Header />
+      {notification && <div className="notification">{notification}</div>}
       <Routes>
         <Route path="/" element={<Hero />} />
 
