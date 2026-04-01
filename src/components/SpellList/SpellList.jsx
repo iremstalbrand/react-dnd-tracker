@@ -5,6 +5,7 @@ export default function SpellList({
   toggleSpell,
   characterClass,
 }) {
+  if (!characterClass || spells.length === 0) return null;
   const spellOptions = spells.slice(0, 20).map((spell) => (
     <span
       key={spell.index}

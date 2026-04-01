@@ -54,21 +54,24 @@ export default function CharacterCard({
           </div>
         </div>
 
-        <div className="card-spells">
-          <h4> SPELLS</h4>
-          <div className="spells-list">
-            {character.characterSpells.map((spell) => (
-              <span key={spell} className="spell-badge">
-                {spell}
-              </span>
-            ))}
+        {character.characterSpells.length > 0 && (
+          <div className="card-spells">
+            <h4> SPELLS</h4>
+            <div className="spells-list">
+              {character.characterSpells.map((spell) => (
+                <span key={spell} className="spell-badge">
+                  {spell}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         <div className="card-backstory">
           <h4>BACKSTORY</h4>
           <p>{character.backstory}</p>
         </div>
       </div>
+
       <div className="card-buttons">
         <button
           onClick={handleEdit}
