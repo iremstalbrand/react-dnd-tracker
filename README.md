@@ -22,8 +22,11 @@ A character tracker with full CRUD functionality, pulling race, class, and spell
 - D&D 5e API integration for races, classes, and spells
 - Dynamic spell fetching based on selected class
 - Toggle spell selection with visual feedback
-- Dark fantasy UI with custom fonts and CSS variable theming
+- Form validation with error messages
+- Toast notifications for user feedback
+- Delete confirmation
 - Client-side routing with React Router
+- Responsive design
 
 ## Tech Stack
 
@@ -72,13 +75,11 @@ Opens at `http://localhost:5173`
 
 ## Roadmap
 
-- Custom delete confirmation modal to replace browser default dialog
 - Equipment tracking — assign weapons and armor from the API
 - Ability selection based on character class
 - Bestiary page — browse and filter monsters from the D&D 5e API
 - NPC creation and listing
 - Data persistence — save characters across sessions
-- Responsive design — optimized for tablet
 - Class-based card theming — dynamic colors per character class
 - Custom image upload (map, character avatar, etc.)
 - Session builder for each game
@@ -88,3 +89,4 @@ Opens at `http://localhost:5173`
 
 - [D&D 5e API](https://www.dnd5eapi.co/) for race, class, and spell data
 - [Google Fonts](https://fonts.google.com/) — Cinzel Decorative, Cinzel, Crimson Text
+- [Leonardo.ai](https://leonardo.ai/) for AI-generated artwork
