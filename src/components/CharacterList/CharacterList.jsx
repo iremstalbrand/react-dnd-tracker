@@ -7,6 +7,9 @@ export default function CharacterList({
   deleteCharacter,
   editCharacter,
 }) {
+  // REVIEW: The <section> has no heading element. Sections should contain a
+  // heading (e.g. <h2>) so screen readers can identify the region. Add a
+  // visually-hidden heading like <h2 className="sr-only">Your Characters</h2>.
   return (
     <section className="character-list-section">
       {characters.length > 0 ? (

@@ -88,6 +88,9 @@ export default function CharacterForm({
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      // REVIEW: document.querySelector inside a React component is a code smell.
+      // It bypasses React's declarative model and can break if the DOM structure
+      // changes. Use a useRef on the first error field and call ref.current.scrollIntoView().
       setTimeout(() => {
         const errorElement = document.querySelector(".error-message");
         if (errorElement) {
@@ -144,6 +147,10 @@ export default function CharacterForm({
     fetchData();
   }, []);
 
+  // REVIEW: When the user changes class, new spells are fetched but previously
+  // selected spells (from the old class) remain in characterSpells. Those orphaned
+  // spells won't show in the new spell list so the user can't deselect them, and
+  // they'll be saved with the character. Clear characterSpells when the class changes.
   useEffect(() => {
     if (characterForm.characterClass === "") {
       setSpells([]);
@@ -235,6 +242,9 @@ export default function CharacterForm({
         />
 
         <label htmlFor="status">Status</label>
+        {/* REVIEW: These <option> elements are missing explicit value attributes.
+            They work by coincidence (the text content becomes the value), but
+            it's better practice to set value="Active" and value="Deceased" explicitly. */}
         <select
           onChange={formUpdate}
           value={characterForm.characterStatus}
@@ -245,6 +255,9 @@ export default function CharacterForm({
           <option>Deceased</option>
         </select>
 
+        {/* REVIEW: The level input has no min/max attributes. Users can type 999
+            and only see an error on submit. Add min={1} max={20} for immediate
+            browser-level constraint, alongside your existing validation. */}
         <label htmlFor="level">Level</label>
         <input
           onChange={formUpdate}

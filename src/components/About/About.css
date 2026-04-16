@@ -32,13 +32,11 @@
   gap: 1.5rem;
 }
 
-
 .about-block {
   border: 1px solid var(--border-light);
   border-radius: 5px;
   padding: 1.2rem;
   background: var(--card-bg);
-
 }
 
 .about-block h2 {
@@ -81,7 +79,10 @@
     min-height: 15rem;
   }
 
-.about-block h2 {
-  font-size: 0.8rem;
-}
+  /* REVIEW: This rule is missing indentation — it looks like it's outside the
+   @media block but it's actually inside. Indent it to match the rest of the
+   media query for consistency and clarity. */
+  .about-block h2 {
+    font-size: 0.8rem;
+  }
 }

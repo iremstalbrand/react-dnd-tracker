@@ -1,4 +1,9 @@
 import "./StatsBlock.css";
+// REVIEW: The stat inputs have no min/max attributes. Users can type any number
+// and only see a validation error on form submit. Add min={1} max={20} to each
+// input for immediate browser-level feedback.
+// REVIEW: Label text like "STR(Strength)" is missing a space before the
+// parenthesis — should be "STR (Strength)" for better readability.
 export default function StatsBlock({ characterForm, formUpdate }) {
   return (
     <div className="stats-container">

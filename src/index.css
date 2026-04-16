@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Crimson+Text&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel&family=Crimson+Text&display=swap");
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,7 @@
   /* Text */
   --text-primary: rgba(212, 168, 85, 0.75);
   --text-nav: rgba(190, 170, 130, 0.8);
-  --text-dim: rgba(190, 170, 130, 0.70);
+  --text-dim: rgba(190, 170, 130, 0.7);
 
   /* Borders */
   --border: rgba(190, 170, 130, 0.06);
@@ -36,9 +36,9 @@
   --spell-text: rgba(160, 140, 240, 0.8);
 
   /* Fonts */
-  --font-display: 'Cinzel Decorative';
-  --font-heading: 'Cinzel';
-  --font-body: 'Crimson Text';
+  --font-display: "Cinzel Decorative";
+  --font-heading: "Cinzel";
+  --font-body: "Crimson Text";
 }
 
 .app-container {
@@ -49,9 +49,13 @@
 
 body {
   background: var(--bg-primary);
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
   color: var(--text-nav);
 }
+/* REVIEW: The notification fades in but vanishes abruptly after 3 seconds
+   when React removes it from the DOM. Add a fade-out animation (e.g. using
+   a CSS class toggled just before removal, or an animation-fill-mode with
+   a timed opacity transition) for a smoother UX. */
 .notification {
   position: fixed;
   top: 5rem;
@@ -70,10 +74,15 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
-
 
 @media (max-width: 768px) {
   .notification {

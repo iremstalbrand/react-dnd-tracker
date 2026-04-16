@@ -1,3 +1,7 @@
+/* REVIEW: The grid jumps from 1 column (≤768px) straight to 4 columns.
+   On tablets (769–1024px) the cards get squeezed well below their 20rem
+   max-width. Add an intermediate breakpoint, e.g.
+   @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); } */
 .character-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -52,14 +56,14 @@
   .character-card {
     margin: 0 auto;
   }
-   .empty-list {
+  .empty-list {
     min-height: 80vh;
   }
 
   .empty-list img {
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -75,5 +79,5 @@
     top: 40%;
     left: 50%;
     padding: 0.5rem;
-}
+  }
 }
