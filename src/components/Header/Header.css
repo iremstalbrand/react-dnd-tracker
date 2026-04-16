@@ -1,4 +1,3 @@
-
 .header-container {
   background: var(--bg-primary);
   display: flex;
@@ -26,7 +25,7 @@
 
 .nav-links {
   display: flex;
-  gap:3rem;
+  gap: 3rem;
   list-style: none;
   font-family: var(--font-heading);
 }
@@ -51,6 +50,11 @@
   border-bottom: 2px solid var(--text-primary);
 }
 
+/* REVIEW: The 768px media query is defined before the 1024px one. Since both
+   match at 768px, the 1024px rules win (later in source order) and override the
+   768px-specific styles. For example, the nav gap of 0.8rem at 768px gets
+   overridden by 1.5rem from the 1024px query. Swap the order: put larger
+   breakpoints first, or combine them with a min-width range. */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;

@@ -13,6 +13,10 @@ export default function HeroSection() {
           {" "}
           Create your characters, assemble your party, prepare for adventure.
         </p>
+        {/* REVIEW: Nesting <button> inside <Link> (which renders an <a>) produces
+            invalid HTML — interactive elements must not be nested. Use <Link>
+            with className="create-btn" directly (styled as a button), or use
+            useNavigate() with a plain <button onClick>. */}
         <div className="hero-buttons">
           <Link to="/create">
             <button className="create-btn" aria-label="Create new character">

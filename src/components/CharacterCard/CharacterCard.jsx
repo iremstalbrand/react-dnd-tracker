@@ -14,6 +14,10 @@ export default function CharacterCard({
     navigate("/create");
   }
 
+  // REVIEW: Once confirmDelete is true, there's no way to cancel it — the user
+  // must either click again to confirm or navigate away. Consider adding a timeout
+  // (e.g. 3 seconds) to auto-reset confirmDelete back to false, or add a
+  // separate "Cancel" option.
   function handleDelete() {
     if (confirmDelete) {
       deleteCharacter(character.id);
