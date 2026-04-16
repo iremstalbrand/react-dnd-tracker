@@ -1,6 +1,11 @@
 import "./About.css";
 import image from "../../assets/About.jpg";
 
+// REVIEW: The about content is absolutely positioned over an image. On small
+// viewports or when text is long, the content can overflow below the image
+// boundary and become clipped/invisible. The mobile breakpoint switches to
+// relative positioning (good), but the desktop layout has no min-height
+// guarantee that the image is tall enough to contain the text.
 export default function About() {
   return (
     <section className="about-section">

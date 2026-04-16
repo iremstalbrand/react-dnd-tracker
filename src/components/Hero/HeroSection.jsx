@@ -5,6 +5,11 @@ import { Link } from "react-router";
 export default function HeroSection() {
   return (
     <section className="hero-container">
+      {/* REVIEW: The alt text "d&d party" is vague and doesn't describe
+          what's actually in the image. Use a more descriptive alt like
+          "Illustration of an adventuring party around a campfire" (or whatever
+          the image depicts) for better accessibility. The trailing space in the
+          alt text should also be removed. */}
       <img className="hero-image" src={image} alt="d&d party " />
       <div className="hero-overlay"></div>
       <div className="hero-content">

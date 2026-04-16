@@ -88,6 +88,9 @@ export default function CharacterForm({
     }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      // REVIEW: document.querySelector inside a React component is a code smell.
+      // It bypasses React's declarative model and can break if the DOM structure
+      // changes. Use a useRef on the first error field and call ref.current.scrollIntoView().
       setTimeout(() => {
         const errorElement = document.querySelector(".error-message");
         if (errorElement) {

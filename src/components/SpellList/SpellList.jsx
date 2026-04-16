@@ -14,6 +14,10 @@ export default function SpellList({
   // They have no tabIndex, role="button", or onKeyDown handler. Keyboard-only
   // users can't select spells. Use <button> elements instead, or add
   // tabIndex={0}, role="button", and an onKeyDown handler for Enter/Space.
+  // REVIEW: The spell list is silently capped at 20 with no indication to the
+  // user that more spells exist. Some classes (e.g. Wizard) have 40+ spells.
+  // Show a count like "Showing 20 of 44 spells" so the user knows the list
+  // is truncated, or add pagination / a "Show more" button.
   const spellOptions = spells.slice(0, 20).map((spell) => (
     <span
       key={spell.index}
